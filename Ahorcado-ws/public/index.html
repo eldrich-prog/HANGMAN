@@ -1,0 +1,34 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ahorcado WS</title>
+  </head>
+  <body>
+    <h1>WebSocket Ahorcado (Demo)</h1>
+    <input id="input" placeholder="Escribe algo..." />
+    <button onclick="enviar()">Enviar</button>
+    <ul id="mensajes"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const input = document.getElementById("input");
+      const mensajes = document.getElementById("mensajes");
+
+      function enviar() {
+        const texto = input.value;
+        socket.emit("mensaje", "hi " + texto);
+        input.value = "";
+      }
+
+      socket.on("mensaje", (msg) => {
+        console.log("Mensaje recibido:", msg);
+        const li = document.createElement("li");
+        li.textContent = msg;
+        mensajes.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
