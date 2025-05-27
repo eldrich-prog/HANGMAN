@@ -1,7 +1,14 @@
 const wordList = [
-    { word: "apple", definition: "A fruit" },
-    { word: "code", definition: "A set of instructions" },
-    { word: "sun", definition: "The star at the center of the solar system" }
+    { word: "espejo", definition: "Te muestro tal como eres, pero no soy persona ni animal. ¿Qué soy?" },
+    { word: "sombra", definition: "Siempre estoy contigo, pero desaparezco en la oscuridad. ¿Qué soy?" },
+    { word: "libro", definition: "Tengo muchas hojas, pero no soy planta. Cuento historias, pero no hablo. ¿Qué soy?" },
+    { word: "reloj", definition: "Tengo manecillas pero no brazos. Doy la hora sin hablar. ¿Qué soy?" },
+    { word: "lápiz", definition: "Escribo sin tener boca y me desgasto al trabajar. ¿Qué soy?" },
+    { word: "huevo", definition: "Tengo una cáscara por fuera y sorpresa por dentro. ¿Qué soy?" },
+    { word: "estrella", definition: "Brillo en la noche, pero me oculto de día. ¿Qué soy?" },
+    { word: "lluvia", definition: "Caigo del cielo, pero no soy ave ni estrella. ¿Qué soy?" },
+    { word: "llave", definition: "Abro sin manos y cierro sin fuerza. ¿Qué soy?" },
+    { word: "zapato", definition: "Siempre ando por el suelo, pero no me ensucio como tú. ¿Qué soy?" }
 ];
 
 const hangmanImage = document.querySelector(".hangman-box img");
