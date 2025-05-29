@@ -10,9 +10,34 @@ body {
     display: flex;
     align-items: center;
     padding: 0 10px;
+    padding-top: 70px; /* para no tapar el contenido */
     justify-content: center;
     min-height: 100vh;
     background: #06071a;
+}
+.titulo-principal {
+    font-size: 80px;
+    color: rgb(52, 40, 40);
+    text-align: center;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+
+    margin: 0; /* Sin margen superior */
+    padding-top: 20px; /* Espacio opcional desde arriba */
+    position: relative;
+}
+.nivel-juego {
+    width: 100%;
+    background-color: #202040;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 700;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 .container {
     width:850px;
@@ -22,6 +47,7 @@ body {
     align-items: flex-end;
     padding:  60px 40px; 
     border-radius: 10px;
+
 }
 .hangman-box img {
     max-width: 270px;

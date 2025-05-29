@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman Game</title>
+    <title>AHORCADO</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts/script.js" defer></script>
     <script src="scripts/wordList.js" defer></script>
 </head>
 <body>
+      <div class="nivel-juego">
+        Nivel del juego: <span id="nivel">Principiante</span>
+    </div>
     <div class="game-modal">
         <div class="content">
             <img src="images/lost.gif" alt="gif">
             <h4>Game Over</h4>
-            <p>The correct word was: <b>rainbow</b></p>
+            <p>La palabra correcta es: <b>rainbow</b></p>
             <button class="play-again">Play Again</button>
         </div>
     </div>
     <div class="container">
         <div class="hangman-box">
             <img src="images/hangman-0.svg" alt="hangman-img">
-            <h1>Hangman Game</h1>
+            <h1 class="titulo-principal">JUEGO DEL AHORCADO</h1>
         </div>
         <div class="game-box">
             <ul class="word-display"></ul>
             <h4 class="hint-text">
-                Hint:
-                <b>Lorem ipsum dolor sit amet consectetur adipisicing elit </b>
+                ADIVINANZA: "<b>Lorem ipsum dolor sit amet consectetur adipisicing elit </b>"
             </h4>
+            <h5 class="puntaje-text">
+                Puntaje:
+                <b></b>
+            </h5>
             <h4 class="guesses-text">
-                Incorrect Guesses:
+                Letras Incorrectas:
                 <b>0 / 6</b>
             </h4>
             <div class="keyboard">
                 
                 </div>
             </div>
+            
         </div>
     </div>
 </body>
