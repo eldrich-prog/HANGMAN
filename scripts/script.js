@@ -1,15 +1,26 @@
 const wordList = [
-    { word: "espejo", definition: "Te muestro tal como eres, pero no soy persona ni animal. ¿Qué soy?" },
-    { word: "sombra", definition: "Siempre estoy contigo, pero desaparezco en la oscuridad. ¿Qué soy?" },
-    { word: "libro", definition: "Tengo muchas hojas, pero no soy planta. Cuento historias, pero no hablo. ¿Qué soy?" },
-    { word: "reloj", definition: "Tengo manecillas pero no brazos. Doy la hora sin hablar. ¿Qué soy?" },
-    { word: "lapiz", definition: "Escribo sin tener boca y me desgasto al trabajar. ¿Qué soy?" },
-    { word: "huevo", definition: "Tengo una cáscara por fuera y sorpresa por dentro. ¿Qué soy?" },
-    { word: "estrella", definition: "Brillo en la noche, pero me oculto de día. ¿Qué soy?" },
-    { word: "lluvia", definition: "Caigo del cielo, pero no soy ave ni estrella. ¿Qué soy?" },
-    { word: "llave", definition: "Abro sin manos y cierro sin fuerza. ¿Qué soy?" },
-    { word: "zapato", definition: "Siempre ando por el suelo, pero no me ensucio como tú. ¿Qué soy?" }
+    { word: "sqlserver", definition: "¿Cómo se llama el sistema de gestión de bases de datos de Microsoft?" },
+    { word: "tsql", definition: "¿Qué lenguaje propietario usa SQL Server para realizar consultas y procedimientos?" },
+    { word: "select", definition: "¿Qué instrucción se utiliza para consultar datos en SQL Server?" },
+    { word: "insert", definition: "¿Qué comando se usa para agregar nuevos registros a una tabla?" },
+    { word: "update", definition: "¿Qué comando modifica los valores existentes en una tabla?" },
+    { word: "delete", definition: "¿Qué comando elimina registros de una tabla?" },
+    { word: "drop", definition: "¿Qué instrucción elimina una tabla por completo, incluyendo su estructura?" },
+    { word: "primarykey", definition: "¿Cómo se llama la clave que identifica de forma única cada fila en una tabla?" },
+    { word: "foreignkey", definition: "¿Qué tipo de clave se usa para relacionar datos entre dos tablas?" },
+    { word: "join", definition: "¿Qué palabra clave permite combinar registros de dos o más tablas relacionadas?" },
+    { word: "where", definition: "¿Qué cláusula se utiliza para establecer condiciones en una consulta?" },
+    { word: "groupby", definition: "¿Qué cláusula permite agrupar registros que tienen los mismos valores en columnas específicas?" },
+    { word: "having", definition: "¿Qué cláusula filtra resultados después de agruparlos con GROUP BY?" },
+    { word: "count", definition: "¿Qué función devuelve el número de registros en una consulta?" },
+    { word: "null", definition: "¿Qué valor representa datos desconocidos o inexistentes en SQL Server?" },
+    { word: "index", definition: "¿Qué objeto se usa para mejorar el rendimiento de las búsquedas en una tabla?" },
+    { word: "view", definition: "¿Qué objeto es una consulta guardada que actúa como una tabla virtual?" },
+    { word: "procedure", definition: "¿Qué objeto almacena un conjunto de instrucciones SQL para su reutilización?" },
+    { word: "trigger", definition: "¿Qué objeto se ejecuta automáticamente en respuesta a eventos como INSERT o UPDATE?" },
+    { word: "backup", definition: "¿Qué operación permite crear una copia de seguridad de la base de datos?" }
 ];
+
 
 const hangmanImage = document.querySelector(".hangman-box img");
 let puntaje =10;
