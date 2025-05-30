@@ -34,7 +34,8 @@ Cada palabra viene acompañada de una **pista o definición**, ayudándote a apr
 
 ## 📷 Captura de pantalla
 
-*(Agrega aquí una imagen del juego si tienes)*
+![image](https://github.com/user-attachments/assets/6d399ad2-c698-459c-b629-6b5917de7c37)
+
 
 ## 📂 Estructura del Proyecto
 
