@@ -1,5 +1,7 @@
 # 🎮 Juego del Ahorcado - Aprende SQL Jugando
 
+## Juego para clase de IHC - TIC'S - ITP
+
 Este proyecto es una versión interactiva del clásico **juego del ahorcado**, desarrollada con **HTML**, **CSS** y **JavaScript**. A diferencia del juego tradicional, aquí las palabras que debes adivinar están relacionadas con el mundo de **SQL** y **bases de datos**, convirtiéndolo en una divertida herramienta de aprendizaje para estudiantes y entusiastas de la programación.
 
 ## 📚 Objetivo Educativo
@@ -38,4 +40,17 @@ Cada palabra viene acompañada de una **pista o definición**, ayudándote a apr
 
 
 ## 📂 Estructura del Proyecto
+
+
+
+## 💡 Ideal para:
+
+- Estudiantes de informática o ingeniería en sistemas.
+- Profesores que quieran gamificar el aprendizaje de SQL.
+- Cualquier persona que quiera aprender jugando.
+
+---
+
+¡Gracias por visitar este proyecto! Si te gustó o te fue útil, no olvides dejar una ⭐ y compartirlo. ¡Aprender también puede ser divertido! 😄
+
 

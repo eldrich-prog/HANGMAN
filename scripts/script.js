@@ -1,3 +1,4 @@
+// Lista de palabras con sus definiciones relacionadas con SQL Server
 const wordList = [
     { word: "sqlserver", definition: "¿Cómo se llama el sistema de gestión de bases de datos de Microsoft?" },
     { word: "tsql", definition: "¿Qué lenguaje propietario usa SQL Server para realizar consultas y procedimientos?" },
@@ -21,17 +22,35 @@ const wordList = [
     { word: "backup", definition: "¿Qué operación permite crear una copia de seguridad de la base de datos?" }
 ];
 
-
+// Variables principales del DOM
 const hangmanImage = document.querySelector(".hangman-box img");
-let puntaje =10;
-hangmanImage.setAttribute("aria-hidden", "true");
-
 const keyboardDiv = document.querySelector(".keyboard");
 const wordDisplay = document.querySelector(".word-display");
 const guessesText = document.querySelector(".guesses-text b");
 const puntajeText = document.querySelector(".puntaje-text b");
-guessesText.setAttribute("aria-live", "polite");
+const gameModal = document.querySelector(".game-modal");
+const playAgainButton = document.querySelector(".play-again");
 
+// Accesibilidad
+hangmanImage.setAttribute("aria-hidden", "true");
+guessesText.setAttribute("aria-live", "polite");
+gameModal.setAttribute("role", "alertdialog");
+gameModal.setAttribute("aria-modal", "true");
+gameModal.setAttribute("aria-labelledby", "modal-title");
+gameModal.setAttribute("aria-describedby", "modal-desc");
+playAgainButton.setAttribute("role", "button");
+playAgainButton.setAttribute("aria-label", "Play again");
+
+// Variables de juego
+let currentWord = "";
+let correctLetters = [];
+let wrongGuessCount = 0;
+let puntaje = 10;
+const maxWrongGuesses = 6;
+
+/**
+ * Actualiza el nivel mostrado según el puntaje actual
+ */
 function actualizarNivel(puntaje) {
     const nivelSpan = document.getElementById("nivel");
     let nivel = "Principiante";
@@ -43,23 +62,16 @@ function actualizarNivel(puntaje) {
     nivelSpan.textContent = nivel;
 }
 
-const gameModal = document.querySelector(".game-modal");
-gameModal.setAttribute("role", "alertdialog");
-gameModal.setAttribute("aria-modal", "true");
-gameModal.setAttribute("aria-labelledby", "modal-title");
-gameModal.setAttribute("aria-describedby", "modal-desc");
-
-const playAgainButton = document.querySelector(".play-again");
-playAgainButton.setAttribute("role", "button");
-playAgainButton.setAttribute("aria-label", "Play again");
-
-let currentWord = "", correctLetters = [], wrongGuessCount = 0;
-const maxWrongGuesses = 6;
-
+/**
+ * Actualiza el texto del puntaje en la interfaz
+ */
 const updateScoreDisplay = () => {
     puntajeText.innerText = `${puntaje}`;
 };
 
+/**
+ * Reinicia el estado del juego para una nueva palabra
+ */
 const resetGame = () => {
     correctLetters = [];
     wrongGuessCount = 0;
@@ -75,14 +87,20 @@ const resetGame = () => {
     actualizarNivel(puntaje);
 };
 
+/**
+ * Elige una palabra aleatoria de la lista y reinicia el juego
+ */
 const getRandomWord = () => {
     const { word, definition } = wordList[Math.floor(Math.random() * wordList.length)];
     currentWord = word;
-    console.log(word, definition);
+    console.log(word, definition); // Puede eliminarse en producción
     document.querySelector(".hint-text b").innerText = definition;
     resetGame();
 };
 
+/**
+ * Muestra el modal de fin de juego (victoria o derrota)
+ */
 const gameOver = (isVictory) => {
     setTimeout(() => {
         if (isVictory) {
@@ -91,15 +109,18 @@ const gameOver = (isVictory) => {
         }
 
         const modalText = isVictory ? "GANASTE!" : "PERDISTE!";
-        gameModal.querySelector("img").src = `images/${isVictory ? `victory` : `lost`}.gif`;
+        gameModal.querySelector("img").src = `images/${isVictory ? "victory" : "lost"}.gif`;
         gameModal.querySelector("h4").id = "modal-title";
-        gameModal.querySelector("h4").innerText = `${isVictory ? `Congratulations` : `Game Over`}`;
+        gameModal.querySelector("h4").innerText = isVictory ? "FELICITACIONES" : "FIN DEL JUEGO";
         gameModal.querySelector("p").id = "modal-desc";
-        gameModal.querySelector("p").innerHTML = `${modalText} <br> The word was: <b>${currentWord.toUpperCase()}</b>`;
+        gameModal.querySelector("p").innerHTML = `${modalText} <br> PALABRA CORRECTA: <b>${currentWord.toUpperCase()}</b>`;
         gameModal.classList.add("show");
     }, 300);
 };
 
+/**
+ * Controla la lógica del juego al hacer clic en una letra
+ */
 const initGame = (button, clickedLetter) => {
     button.disabled = true;
 
@@ -119,11 +140,14 @@ const initGame = (button, clickedLetter) => {
     }
 
     guessesText.innerText = `${wrongGuessCount} / ${maxWrongGuesses}`;
+
     if (wrongGuessCount === maxWrongGuesses) return gameOver(false);
     if (!wordDisplay.querySelector("li:not(.guessed)")) return gameOver(true);
 };
 
-// Crear botones del teclado
+/**
+ * Crea los botones del teclado (A-Z)
+ */
 for (let i = 97; i <= 122; i++) {
     const letter = String.fromCharCode(i);
     const button = document.createElement("button");
@@ -131,8 +155,12 @@ for (let i = 97; i <= 122; i++) {
     button.setAttribute("role", "button");
     button.setAttribute("aria-label", `Letter ${letter}`);
     keyboardDiv.appendChild(button);
+
     button.addEventListener("click", e => initGame(e.target, letter));
 }
 
+// Inicialización del juego
 getRandomWord();
+
+// Reiniciar juego al hacer clic en "Jugar de nuevo"
 playAgainButton.addEventListener("click", getRandomWord);
