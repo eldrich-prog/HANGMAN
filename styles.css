@@ -1,4 +1,7 @@
+/* Importa la fuente Open Sans desde Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+/* Reset general para todos los elementos */
 * {
     margin: 0;
     padding: 0;
@@ -6,25 +9,39 @@
     font-family: "Open Sans", sans-serif;
 }
 
+/* Estilos base del body */
 body {
     display: flex;
     align-items: center;
-    padding: 0 10px;
-    padding-top: 70px; /* para no tapar el contenido */
     justify-content: center;
+    padding: 0 10px;
+    padding-top: 70px; /* Espacio para no tapar el contenido con la barra superior */
     min-height: 100vh;
-    background: #06071a;
+    background: #06071a; /* Fondo oscuro */
 }
-.titulo-principal {
-    font-size: 80px;
-    color: rgb(52, 40, 40);
-    text-align: center;
-    font-family: 'Impact', 'Arial Black', sans-serif;
 
-    margin: 0; /* Sin margen superior */
-    padding-top: 20px; /* Espacio opcional desde arriba */
+/* Título principal del juego */
+.titulo-principal {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #2e2e2e;
+    text-align: center;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-weight: 800;
+    margin: 0;
     position: relative;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
+.hint-text b {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    text-align: center;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-weight: 800;
+
+}
+
+/* Barra superior que muestra el nivel del juego */
 .nivel-juego {
     width: 100%;
     background-color: #202040;
@@ -39,25 +56,32 @@ body {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+
+/* Contenedor principal */
 .container {
-    width:850px;
-    background:#fff;
+    width: 850px;
+    background: #fff;
     display: flex;
     gap: 70px;
     align-items: flex-end;
-    padding:  60px 40px; 
+    padding: 60px 40px;
     border-radius: 10px;
-
 }
+
+/* Imagen del ahorcado */
 .hangman-box img {
     max-width: 270px;
 }
+
+/* Título dentro del box del ahorcado */
 .hangman-box h1 {
     font-size: 1.45rem;
     margin-top: 20px;
     text-align: center;
     text-transform: uppercase;
 }
+
+/* Muestra la palabra en juego */
 .word-display {
     display: flex;
     gap: 15px;
@@ -65,21 +89,26 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* Letra individual del juego */
 .word-display .letter {
     width: 28px;
-    font-size:2rem;
+    font-size: 2rem;
     font-weight: 600;
     text-align: center;
     padding: 10px 0;
     text-transform: uppercase;
     margin-bottom: 40px;
     border-bottom: 3px solid #000;
-
 }
+
+/* Letra ya adivinada correctamente */
 .word-display .letter.guessed {
     border-color: transparent;
     margin: -40px 0 35px;
 }
+
+/* Estilos generales para los textos dentro de game-box */
 .game-box h4 {
     font-size: 1.1rem;
     margin-bottom: 15px;
@@ -87,12 +116,18 @@ body {
     text-transform: uppercase;
     font-weight: 500;
 }
+
+/* Negrita dentro de los encabezados */
 .game-box h4 b {
     font-weight: 600;
 }
+
+/* Color de letras incorrectas */
 .game-box .guesses-text b {
     color: #ff0000;
 }
+
+/* Teclado virtual */
 .game-box .keyboard {
     display: flex;
     gap: 5px;
@@ -100,8 +135,10 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+/* Estilo base para todos los botones */
 :where(.game-modal, .keyboard) button {
-    color:fff;
+    color: #fff;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -111,32 +148,42 @@ body {
     background: #5E63BA;
     border-radius: 4px;
     text-transform: uppercase;
-    width: calc(100% / 10 - 7px);
+    width: calc(100% / 10 - 7px); /* Botones distribuidos en 10 columnas */
 }
+
+/* Botones del teclado específicamente */
 .keyboard button {
     padding: 9px;
 }
+
+/* Botón deshabilitado */
 .keyboard button[disabled] {
-    opacity: 7px;
+    opacity: 0.6;
     background: #ccc;
     pointer-events: none;
 }
+
+
+/* Hover para botones */
 :where(.game-modal, .keyboard) button:hover {
     background: #313567;
     transition: background 0.3s ease;
     color: #fff;
 }
+
+/* Botón para reiniciar el juego */
 .play-again {
     background: #5E63BA;
     color: #fff;
     font-size: 3rem;
     font-weight: 600;
     width: 100%;
-    
 }
+
+/* Modal general al perder el juego */
 .game-modal {
     position: fixed;
-    left: 0; 
+    left: 0;
     top: 0;
     width: 100%;
     height: 100%;
@@ -149,12 +196,14 @@ body {
     background: rgba(0,0,0,0.6);
     transition: opacity 0.4s ease;
 }
+
+/* Mostrar el modal */
 .game-modal.show {
     opacity: 1;
     pointer-events: auto;
-    z-index: 999;
-    display: flex;
 }
+
+/* Contenido dentro del modal */
 .game-modal .content {
     background: #fff;
     max-width: 420px;
@@ -163,22 +212,31 @@ body {
     border-radius: 10px;
     padding: 30px;
 }
+
+/* Imagen del modal */
 .game-modal img {
     max-width: 130px;
     margin-bottom: 20px;
 }
-.game-model h4 {
+
+/* Título del modal (nota: había un error tipográfico: `game-model`) */
+.game-modal h4 {
     font-size: 1.53rem;
 }
+
+/* Texto que muestra la palabra correcta */
 .game-modal p {
     font-size: 1.15rem;
     margin: 15px 0 30px;
     font-weight: 500;
 }
+
 .game-modal p b {
     color: #ff0000;
     font-weight: 600;
 }
+
+/* Botón dentro del modal */
 .game-modal button {
     padding: 10px 20px;
     border: none;
@@ -191,24 +249,51 @@ body {
     border-radius: 4px;
 }
 
+/* Estilos responsivos para pantallas pequeñas */
 @media (max-width: 782px) {
     .container {
         flex-direction: column;
         padding: 30px 15px;
         align-items: center;
     }
+
     .hangman-box img {
         max-width: 200px;
     }
+
     .hangman-box h1 {
-        display: none;
+        display: none; /* Oculta el título en pantallas pequeñas */
     }
+
     .word-display .letter {
         width: 20px;
         font-size: 1.5rem;
     }
-    .game-box h4 {
 
+    .game-box h4 {
         font-size: 1rem;
+    }
+}
+
+.pie-pagina {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #202040;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.ocultar-en-movil {
+    display: block; /* o inline o como lo tengas normalmente */
+}
+
+@media (max-width: 768px) {
+    .ocultar-en-movil {
+        display: none;
     }
 }

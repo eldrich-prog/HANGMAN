@@ -1,49 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Codificación de caracteres -->
     <meta charset="UTF-8">
+
+    <!-- Vista adaptable a distintos dispositivos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título de la pestaña del navegador -->
     <title>AHORCADO</title>
+
+    <!-- Enlace a la hoja de estilos externa -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Scripts de funcionalidad del juego (defer retrasa la ejecución hasta que el DOM esté cargado) -->
     <script src="scripts/script.js" defer></script>
     <script src="scripts/wordList.js" defer></script>
 </head>
 <body>
-      <div class="nivel-juego">
+    <!-- Indicador del nivel del juego -->
+    <div class="nivel-juego">
         Nivel del juego: <span id="nivel">Principiante</span>
     </div>
+
+    <!-- Modal que se muestra al perder el juego -->
     <div class="game-modal">
         <div class="content">
+            <!-- Imagen de animación al perder -->
             <img src="images/lost.gif" alt="gif">
+
+            <!-- Mensaje de fin del juego -->
             <h4>Game Over</h4>
+
+            <!-- Palabra correcta que debía adivinarse -->
             <p>La palabra correcta es: <b>rainbow</b></p>
+
+            <!-- Botón para volver a jugar -->
             <button class="play-again">Play Again</button>
         </div>
     </div>
+
+    <!-- Contenedor principal del juego -->
     <div class="container">
+        <!-- Caja del ahorcado con imagen y título -->
         <div class="hangman-box">
             <img src="images/hangman-0.svg" alt="hangman-img">
-            <h1 class="titulo-principal">JUEGO DEL AHORCADO</h1>
+            <h1 class="titulo-principal">JUEGO DEL AHORCADO: APRENDE SQL SERVER</h1>
         </div>
+
+        <!-- Caja del juego donde se muestra la palabra, pista y controles -->
         <div class="game-box">
+            <!-- Lista de letras que componen la palabra a adivinar -->
             <ul class="word-display"></ul>
+
+            <!-- Pista de la palabra oculta -->
             <h4 class="hint-text">
-                PREGUNTA: "<b>Lorem ipsum dolor sit amet consectetur adipisicing elit </b>"
+                PREGUNTA: "<b>Lorem ipsum dolor sit amet consectetur adipisicing elit</b>"
             </h4>
+
+            <!-- Puntaje del jugador -->
             <h5 class="puntaje-text">
-                Puntaje:
-                <b></b>
+                Puntaje: <b></b>
             </h5>
+
+            <!-- Letras incorrectas adivinadas -->
             <h4 class="guesses-text">
-                Letras Incorrectas:
-                <b>0 / 6</b>
+                Letras Incorrectas: <b>0 / 6</b>
             </h4>
-            <div class="keyboard">
-                
-                </div>
+
+            <!-- Teclado interactivo generado dinámicamente por JavaScript -->
+            <div class="keyboard"></div>
+            <div class="pie-pagina ocultar-en-movil">
+                <P>Disponible en celular</P>
+                <p>Desarrollado por: ELDRICH MARIN FLORES</p>
+                <P>Instituto Tecnlógico de Puebla</P>
             </div>
+            <!-- Botón para iniciar el juego -->
             
+
         </div>
     </div>
+    <!-- Pie de página con información del desarrollador -->
+    
 </body>
 </html>
